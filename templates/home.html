@@ -1,15 +1,13 @@
 <h1>hello world</h1>
-{% include "about.html" %}
+
 <input type='text' placeholder='football'></input>
-<p>you cannot</P>
+
 {% block content %}
     <p>Hello </P>
-        <p>you can from about to  </P>
 {% endblock  %}
 
 {% block content_area%}
     <p>Not Hello </P>
-        <p>Not you can from about to  </P>
 {% endblock  %}
 
 <p>{{banana}},{{lemon}}</p>

@@ -1,0 +1,12 @@
+{% extends "home.html" %}
+
+{% block content %}
+    <h1>{{object.title}}</h1>
+    <p>
+        {% if object.descriptoin %}{{object.descriptoin}}{% else %}Commin sooner!yea baybes!! {% endif %}</p>
+    <a>{{object.price}}</a>
+{% endblock %}
+{% block content_area %}
+<h1>{{title}}</h1>
+<p>{{desciption}}</p>
+<a>{{price}}</a>{% endblock content_area %}
