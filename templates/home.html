@@ -10,15 +10,4 @@
     <p>Not Hello </P>
 {% endblock  %}
 
-<p>{{banana}},{{lemon}}</p>
-
-<ul>
-    {% for num in lemon %}
-        {% if num > 10 %}
-            <li>{{num|add:3}}</li>
-        {% comment %} {% else %}
-            <li>{{num}}</li> {% endcomment %}
-        {% endif %}
-    {% endfor %}
-</ul>
 
