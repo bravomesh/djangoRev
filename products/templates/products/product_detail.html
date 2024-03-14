@@ -2,8 +2,7 @@
 
 {% block content %}
     <h1>In App temp: {{object.title}}</h1>
-    <p>
-        {% if object.descriptoin %}{{object.descriptoin}}{% else %}Commin sooner!yea baybes!! {% endif %}</p>
+    <p>{% if object.descriptoin %}{{object.descriptoin}}{% else %}Commin sooner!yea baybes!! {% endif %}</p>
     <a>{{object.price}}</a>
 {% endblock %}
 {% block content_area %}
