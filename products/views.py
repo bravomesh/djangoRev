@@ -1,9 +1,13 @@
 from django.shortcuts import render
+from django.http import Http404
 from .forms import ProductForm, RawProductForm
 from .models import Product
 # Create your views here.
-def product_detail_view(request):
-    obj = Product.objects.get(id=1)
+def product_detail_view(request, my_id):
+    try:
+        obj = Product.objects.get(id=my_id)
+    except Product.DoesNotExist:
+        raise Http404('Product does not exist')
     context = {
         'object':obj 
         # 'title':obj.title,
@@ -25,15 +29,13 @@ def product_detail_view(request):
 #     return render(request, 'products/product_create.html', context)
 
 def product_create_view(request):
-    form = RawProductForm()
-    if request.method == 'POST':
-        form = RawProductForm(request.POST)
-        if form.is_valid():
-            Product.objects.create(**form.cleaned_data)
-            print(form.cleaned_data)
-        else:
-            print(form.errors)
-    context={
+    initial_data={
+        'title':'this awesome title',
+        'description':'this awesome description is okayg'
+    }
+    form = ProductForm(request.POST or None, initial = initial_data)
+    
+    context={ 
         'form': form
     }
     return render(request, 'products/product_create.html', context)
